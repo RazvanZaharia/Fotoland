@@ -1,0 +1,9 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="photo_crop_border_offset">10.0dip</dimen>
+    <dimen name="bt_input_text_size">16.0sp</dimen>
+    <dimen name="crop_image_min_frame_size">150dp</dimen>
+</resources>

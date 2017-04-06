@@ -1,0 +1,57 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        applicationId "eu.mobiletouch.footland"
+        minSdkVersion 16
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+ext {
+    supportLibVersion = '24.1.1'
+    playServicesLibVersion = '9.4.0'
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+
+    compile "com.android.support:support-annotations:${supportLibVersion}"
+    compile("com.android.support:support-v4:${supportLibVersion}") {
+        exclude module: 'support-annotations'
+    }
+    compile("com.android.support:appcompat-v7:${supportLibVersion}") {
+        exclude module: 'support-v4'
+    }
+    compile("com.android.support:recyclerview-v7:${supportLibVersion}") {
+        exclude module: 'support-annotations'
+        exclude module: 'support-v4'
+    }
+    compile("com.android.support:design:${supportLibVersion}") {
+        exclude module: 'support-v4'
+        exclude module: 'appcompat-v7'
+        exclude module: 'support-annotations'
+        exclude module: 'recyclerview-v7'
+    }
+    compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.github.bumptech.glide:glide:3.6.1'
+    compile 'pl.droidsonroids.gif:android-gif-drawable:1.1.10'
+    compile 'com.facebook.android:facebook-android-sdk:[4,5)'
+    compile 'com.isseiaoki:simplecropview:1.1.4'
+
+    //Not on Maven
+    compile files('libs/volley.jar')
+
+}

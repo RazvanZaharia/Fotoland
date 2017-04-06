@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Fotoland</string>
+
+    <string name="label_open">Open</string>
+    <string name="label_close">Close</string>
+
+    <string name="label_menu_item_myAccount">Contul meu</string>
+    <string name="label_menu_item_home">Acasa</string>
+    <string name="label_menu_item_myOrders">Comenzile mele</string>
+    <string name="label_menu_item_prices">Preturi</string>
+    <string name="label_menu_item_faq">FAQ</string>
+    <string name="label_menu_item_contact">Contact</string>
+
+    <string name="title_screen_select_product">Selecteaza un produs</string>
+
+    <string name="name_product_prints">Printuri</string>
+    <string name="name_product_posters">Postere</string>
+    <string name="name_product_canvas">Tablou</string>
+    <string name="name_product_photobook">Album</string>
+    <string name="name_product_extra">Extra</string>
+
+</resources>

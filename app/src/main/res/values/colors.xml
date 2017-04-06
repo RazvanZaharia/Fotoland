@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorAccent">#3b6dd3</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="blue">#3b6dd3</color>
+    <color name="gray">#808080</color>
+    <color name="light_gray">#e0e0e0</color>
+    <color name="red">#EE0000</color>
+    <color name="blue_mist">#82CFFD</color>
+    <color name="opacity_10">#1AFFFFFF</color>
+    <color name="opacity_50">#80FFFFFF</color>
+    <color name="opacity_0">#00FFFFFF</color>
+    <color name="main_pink">#ffe44f87</color>
+    <color name="bt_light_gray">#ff6d6d6d</color>
+    <color name="photo_crop_overlay_bg">#ffe9ecf2</color>
+    <color name="window_background">#1C1C1C</color>
+    <color name="overlay">#AA1C1C1C</color>
+</resources>

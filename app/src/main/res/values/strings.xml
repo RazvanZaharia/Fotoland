@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Fotoland</string>
+
+    <string name="label_open">Open</string>
+    <string name="label_close">Close</string>
+
+    <string name="label_menu_item_myAccount">My account</string>
+    <string name="label_menu_item_home">Home</string>
+    <string name="label_menu_item_myOrders">My orders</string>
+    <string name="label_menu_item_prices">Prices</string>
+    <string name="label_menu_item_faq">FAQ</string>
+    <string name="label_menu_item_contact">Contact</string>
+
+    <string name="title_screen_select_product">Select a product</string>
+
+    <string name="name_product_prints">Prints</string>
+    <string name="name_product_posters">Posters</string>
+    <string name="name_product_canvas">Canvas</string>
+    <string name="name_product_photobook">Photobook</string>
+    <string name="name_product_extra">Extra</string>
+
+    <string name="name_item_regular">Regular</string>
+    <string name="description_item_regular">multiple sizes</string>
+    <string name="name_item_square">Square</string>
+    <string name="description_item_square">10x10 cm</string>
+    <string name="name_item_vintage">Vintage</string>
+    <string name="description_item_vintage">10x13 cm</string>
+    <string name="label_select">Select</string>
+    <string name="label_1_offer">Order your photo prints for FREE!</string>
+    <string name="label_2_offer">Fotoland prints and deliver them worldwide!</string>
+    <string name="label_3_offer">What do I get for FREE?</string>
+    <string name="label_4_offer">Up to 30 free prints 10x15 cm by month ( one photo by print )</string>
+    <string name="label_5_offer">What do I pay for?</string>
+    <string name="label_6_offer">aditional 10x15 cm prints\nother prints sizes\nother products\nshipping and processing</string>
+    <string name="label_next">next</string>
+    <string name="label_choose_paper_type">Choose your paper type:</string>
+    <string name="label_choose_photo_size">Choose your photo size:</string>
+    <string name="label_order_more_prints">Order more prints and pay less</string>
+
+    <string name="unit_price">Unit price</string>
+    <string name="pieces_100">100+</string>
+    <string name="pieces_250">250+</string>
+    <string name="pieces_500">500+</string>
+    <string name="pieces_1000">1000+</string>
+    <string name="label_select_pictures">Select Pictures</string>
+
+    <string name="paper_glossy">Glossy</string>
+    <string name="paper_matte">Matte</string>
+
+    <string name="cm_10x10">10x10 cm</string>
+    <string name="cm_10x13">10x13 cm</string>
+    <string name="cm_9x13">9x13 cm</string>
+    <string name="cm_10x15">10x15 cm</string>
+    <string name="cm_13x18">13x18 cm</string>
+    <string name="cm_15x21">15x21 cm</string>
+    <string name="cm_20x30">20x30 cm</string>
+    <string name="cm_20x20">20x20 cm</string>
+    <string name="cm_30x30">30x30 cm</string>
+    <string name="cm_15x20">15x20 cm</string>
+
+    <string name="permission_details_external_storage">We need this permission to display local photos</string>
+    <string name="permission_denied">We do not have permission to continue</string>
+    <string name="title_tabPhotos_phone">Phone</string>
+    <string name="title_tabPhotos_facebook">Facebook</string>
+    <string name="title_sceen_selectPhotos">Select photos</string>
+    <string name="message_facebookLogin">You will need to sign-in to your Facebook account in order to use your albums</string>
+    <string name="label_connectToFacebook">Connect to facebook</string>
+    <string name="message_facebookLoginFailed">Facebook login failed</string>
+    <string name="label_messageNoInternetError">No internet available</string>
+    <string name="message_facebookAlbumsError">Error while retrieving facebook albums</string>
+    <string name="label_facebookAlbum_upload">Upload</string>
+    <string name="title_alertDialog_onBackPressed_emptyYourSelection">Empty your selection</string>
+    <string name="message_alertDialog_onBackPressed_emptyYourSelection">Going back to home screen will empty your selection.\nAre you sure?</string>
+    <string name="label_confirm">Confirm</string>
+    <plurals name="selectedPhotos">
+        <item quantity="one">photo</item>
+        <item quantity="other">photos</item>
+    </plurals>
+
+    <string name="photo_crop_hint">You can drag and scale!</string>
+    <string name="photo_crop_rotate">ROTATE</string>
+    <string name="photo_crop_save">NEXT ></string>
+    <string name="photo_print_regular_width">10.2</string>
+    <string name="photo_print_regular_height">13.6</string>
+    <string name="hint_addText">Add Text</string>
+
+</resources>

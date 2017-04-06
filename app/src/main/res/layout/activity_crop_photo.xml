@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/layout_root"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/blue"
+        app:layout_collapseMode="pin"
+        app:navigationIcon="@drawable/ic_back_support"
+        app:title=""/>
+
+    <com.isseiaoki.simplecropview.CropImageView
+        android:id="@+id/iv_image_to_crop"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingBottom="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp"
+        app:scv_background_color="@color/window_background"
+        app:scv_frame_color="@color/blue"
+        app:scv_frame_stroke_weight="1dp"
+        app:scv_guide_color="@android:color/transparent"
+        app:scv_guide_show_mode="show_always"
+        app:scv_guide_stroke_weight="1dp"
+        app:scv_handle_color="@color/blue"
+        app:scv_handle_shadow_enabled="true"
+        app:scv_handle_show_mode="show_always"
+        app:scv_handle_size="10dp"
+        app:scv_min_frame_size="@dimen/crop_image_min_frame_size"
+        app:scv_overlay_color="@color/overlay"
+        app:scv_touch_padding="8dp"/>
+</LinearLayout>
