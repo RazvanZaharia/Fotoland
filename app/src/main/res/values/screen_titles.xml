@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="screenTitle_select_product">Select a product</string>
+    <string name="screenTitle_cropActivity">Crop photo</string>
+    <string name="screenTitle_cartActivity">Shopping Cart</string>
+    <string name="screenTitle_selectSize">Select the size</string>
+    <string name="screenTitle_makeCollage">Make collage</string>
+    <string name="screenTitle_makePoster">Make poster</string>
+    <string name="screenTitle_poster">Poster</string>
+    <string name="screenTitle_register">Register</string>
+    <string name="screenTitle_login">Login</string>
+</resources>

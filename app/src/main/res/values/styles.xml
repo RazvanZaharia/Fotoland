@@ -19,4 +19,11 @@
         <item name="android:background">@android:color/transparent</item>
     </style>
 
+    <style name="CardView">
+        <item name="cardCornerRadius">2dp</item>
+        <item name="cardPreventCornerOverlap">false</item>
+        <item name="cardUseCompatPadding">true</item>
+        <item name="cardElevation">2dp</item>
+    </style>
+
 </resources>

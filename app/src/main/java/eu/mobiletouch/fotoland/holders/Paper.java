@@ -11,7 +11,7 @@ public class Paper implements Serializable {
     private static final long serialVersionUID = 1406106769309693550L;
 
     public enum PaperType {
-        GLOSSY, MATTE
+        GLOSSY, MATTE, CLASSIC, CANVAS
     }
 
     @DrawableRes
@@ -48,6 +48,9 @@ public class Paper implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-        return o instanceof Paper && ((Paper) o).getName().equals(mName) && ((Paper) o).mIconRes == mIconRes && ((Paper) o).getItemType() == mItemType;
+        return o instanceof Paper
+                && ((Paper) o).getName().equals(mName)
+                && ((Paper) o).mIconRes == mIconRes
+                && ((Paper) o).getItemType() == mItemType;
     }
 }

@@ -6,4 +6,10 @@
     <dimen name="photo_crop_border_offset">10.0dip</dimen>
     <dimen name="bt_input_text_size">16.0sp</dimen>
     <dimen name="crop_image_min_frame_size">150dp</dimen>
+    <dimen name="item_list_selectedPhotos">300dp</dimen>
+    <dimen name="item_list_selectedPhotobookPhotos">170dp</dimen>
+
+    <dimen name="material_padding">16dp</dimen>
+
+    <dimen name="dp_15">15dp</dimen>
 </resources>

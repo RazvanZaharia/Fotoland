@@ -11,9 +11,10 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import eu.mobiletouch.fotoland.R;
 import eu.mobiletouch.fotoland.adapters.AdapterRvSelectedPhotos;
+import eu.mobiletouch.fotoland.dialogs.DialogAddText;
 import eu.mobiletouch.fotoland.holders.Item;
 import eu.mobiletouch.fotoland.holders.UserSelections;
-import eu.mobiletouch.fotoland.holders.localPhotos.Photo;
+import eu.mobiletouch.fotoland.interfaces.SelectedPhotoItem;
 import eu.mobiletouch.fotoland.mvps.MvpActivityDisplaySelectedPhotos;
 import eu.mobiletouch.fotoland.presenters.PresenterActivityDisplaySelectedPhotos;
 import eu.mobiletouch.fotoland.utils.Constants;
@@ -44,6 +45,25 @@ public class ActivityDisplaySelectedPhotos extends BaseSaveToolbarActivity imple
     }
 
     @Override
+    protected String getScreenName() {
+        UserSelections userSelections = (UserSelections) getIntent().getSerializableExtra(Constants.USER_SELECTION);
+        if (userSelections != null && userSelections.getSelectedItem() != null && userSelections.getSelectedProduct() != null) {
+            return userSelections.getSelectedItem().getName().concat(" ").concat(userSelections.getSelectedProduct().getName());
+        }
+        return null;
+    }
+
+    @Override
+    protected boolean isProductScreen() {
+        return true;
+    }
+
+    @Override
+    protected boolean showCartIcon() {
+        return false;
+    }
+
+    @Override
     protected void init() {
         super.init();
         mRvSelectedPhotos.setLayoutManager(new LinearLayoutManager(this));
@@ -51,16 +71,17 @@ public class ActivityDisplaySelectedPhotos extends BaseSaveToolbarActivity imple
 
         mPresenterActivityDisplaySelectedPhotos = new PresenterActivityDisplaySelectedPhotos(this);
         mPresenterActivityDisplaySelectedPhotos.attachView(this);
-        mPresenterActivityDisplaySelectedPhotos.init(getIntent());
+        mPresenterActivityDisplaySelectedPhotos.init((UserSelections) getIntent().getSerializableExtra(Constants.USER_SELECTION));
     }
 
     @Override
-    public void showSelectedPhotos(@NonNull ArrayList<Photo> photos, @NonNull Item.ItemType itemType) {
+    public void showSelectedPhotos(@NonNull ArrayList<SelectedPhotoItem> photos, @NonNull Item selectedItem, float ppiLimit) {
         if (mAdapterRvSelectedPhotos == null) {
-            mAdapterRvSelectedPhotos = new AdapterRvSelectedPhotos(this, photos, itemType, mPresenterActivityDisplaySelectedPhotos);
+            mAdapterRvSelectedPhotos = new AdapterRvSelectedPhotos(this, mPresenterActivityDisplaySelectedPhotos);
+            mAdapterRvSelectedPhotos.setSelectedPhotos(photos, selectedItem, ppiLimit);
             mRvSelectedPhotos.setAdapter(mAdapterRvSelectedPhotos);
         } else {
-            mAdapterRvSelectedPhotos.setSelectedPhotos(photos, itemType);
+            mAdapterRvSelectedPhotos.setSelectedPhotos(photos, selectedItem, ppiLimit);
             mAdapterRvSelectedPhotos.notifyDataSetChanged();
         }
     }
@@ -77,8 +98,29 @@ public class ActivityDisplaySelectedPhotos extends BaseSaveToolbarActivity imple
     }
 
     @Override
-    protected void onSaveMenuItemAction() {
+    public void notifyAdapterItemRemoved(int position) {
+        if (mAdapterRvSelectedPhotos != null) {
+            if (position < 0) {
+                mAdapterRvSelectedPhotos.notifyDataSetChanged();
+            } else {
+                mAdapterRvSelectedPhotos.notifyItemRemoved(position);
+            }
+        }
+    }
 
+    @Override
+    public void finishAllProductScreens() {
+        closeSelectProductsActivities();
+    }
+
+    @Override
+    public void showDialogAddText(String text, @NonNull DialogAddText.OnAddTextListener onAddTextListener) {
+        DialogAddText.newInstance(text).setOnAddTextListener(onAddTextListener).show(getSupportFragmentManager(), "");
+    }
+
+    @Override
+    protected void onSaveMenuItemAction() {
+        mPresenterActivityDisplaySelectedPhotos.onConfirmClick();
     }
 
     @Override

@@ -18,24 +18,8 @@
             app:title=""
             app:titleEnabled="false">
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@android:color/transparent"
-                app:layout_collapseMode="pin"
-                app:navigationIcon="@drawable/ic_back_support"
-                app:title="">
+            <include layout="@layout/layout_toolbar"/>
 
-                <TextView
-                    android:id="@+id/tv_screen_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    tools:text="Prints"/>
-            </android.support.v7.widget.Toolbar>
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 

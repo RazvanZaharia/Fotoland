@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto"
-              xmlns:tools="http://schemas.android.com/tools"
               android:id="@+id/layout_root"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/blue"
-        app:layout_collapseMode="pin"
-        app:navigationIcon="@drawable/ic_back_support"
-        app:title=""/>
+    <include layout="@layout/layout_toolbar"/>
 
     <com.isseiaoki.simplecropview.CropImageView
         android:id="@+id/iv_image_to_crop"
@@ -26,6 +17,7 @@
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:paddingTop="16dp"
+        app:scv_crop_mode="free"
         app:scv_background_color="@color/window_background"
         app:scv_frame_color="@color/blue"
         app:scv_frame_stroke_weight="1dp"

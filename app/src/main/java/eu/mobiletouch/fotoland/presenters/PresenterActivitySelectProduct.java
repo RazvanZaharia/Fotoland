@@ -35,9 +35,9 @@ public class PresenterActivitySelectProduct extends BasePresenter<MvpActivitySel
     private ArrayList<Product> getData() {
         ArrayList<Product> items = new ArrayList<>();
         items.add(new ProductPrints(mCtx));
+        items.add(new ProductPhotobook(mCtx));
         items.add(new ProductPosters(mCtx));
         items.add(new ProductCanvas(mCtx));
-        items.add(new ProductPhotobook(mCtx));
         items.add(new ProductExtra(mCtx));
         return items;
     }

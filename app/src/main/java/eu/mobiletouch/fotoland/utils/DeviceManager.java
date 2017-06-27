@@ -3,11 +3,14 @@ package eu.mobiletouch.fotoland.utils;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.util.Log;
 
 import java.util.ArrayList;
 
+import eu.mobiletouch.fotoland.enums.Orientation;
 import eu.mobiletouch.fotoland.holders.localPhotos.Photo;
 import eu.mobiletouch.fotoland.holders.localPhotos.PhotoAlbum;
 import eu.mobiletouch.fotoland.interfaces.OnLocalImagesObtained;
@@ -17,7 +20,37 @@ import eu.mobiletouch.fotoland.interfaces.OnLocalImagesObtained;
  */
 public class DeviceManager {
 
-    public static void getPhoneAlbums(Context context, OnLocalImagesObtained listener) {
+    public static void getPhoneAlbums(final Context context, final OnLocalImagesObtained listener) {
+        new AsyncTask<Void, Void, ArrayList<PhotoAlbum>>() {
+            @Override
+            protected ArrayList<PhotoAlbum> doInBackground(Void... params) {
+                // Creating vectors to hold the final albums objects and albums names
+                ArrayList<PhotoAlbum> phoneAlbums = new ArrayList<>();
+
+                // content: style URI for the "primary" external storage volume
+                Uri externalImages = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+                Uri sdCardImages = MediaStore.Images.Media.getContentUri("sdCard");
+                Uri internalImages = MediaStore.Images.Media.INTERNAL_CONTENT_URI;
+
+                phoneAlbums.addAll(getImagesForUri(context, externalImages));
+                phoneAlbums.addAll(getImagesForUri(context, internalImages));
+
+                return phoneAlbums;
+            }
+
+            @Override
+            protected void onPostExecute(ArrayList<PhotoAlbum> photoAlba) {
+                super.onPostExecute(photoAlba);
+                if (photoAlba.size() > 0) {
+                    listener.onComplete(photoAlba);
+                } else {
+                    listener.onError();
+                }
+            }
+        }.execute();
+    }
+
+    private static ArrayList<PhotoAlbum> getImagesForUri(Context context, Uri uri) {
         // Creating vectors to hold the final albums objects and albums names
         ArrayList<PhotoAlbum> phoneAlbums = new ArrayList<>();
         ArrayList<String> albumsNames = new ArrayList<>();
@@ -26,47 +59,56 @@ public class DeviceManager {
         String[] projection = new String[]{
                 MediaStore.Images.Media.BUCKET_DISPLAY_NAME,
                 MediaStore.Images.Media.DATA,
-                MediaStore.Images.Media._ID
+                MediaStore.Images.Media._ID,
+                MediaStore.Images.Media.ORIENTATION
         };
-
-        // content: style URI for the "primary" external storage volume
-        Uri images = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
-
         // Make the query.
-        Cursor cur = context.getContentResolver().query(images,
+        Cursor cursor = context.getContentResolver().query(uri,
                 projection, // Which columns to return
                 null,       // Which rows to return (all rows)
                 null,       // Selection arguments (none)
-                null        // Ordering
+                MediaStore.MediaColumns.DATE_ADDED + " DESC"        // Ordering
         );
 
-        if (cur != null && cur.getCount() > 0) {
-            Log.i("DeviceImageManager", " query count=" + cur.getCount());
+        if (cursor != null && cursor.getCount() > 0) {
+            Log.i("DeviceImageManager", " query count=" + cursor.getCount());
 
-            if (cur.moveToFirst()) {
+            if (cursor.moveToFirst()) {
                 String bucketName;
                 String data;
                 String imageId;
-                int bucketNameColumn = cur.getColumnIndex(
+                String rotationId;
+
+                int bucketNameColumn = cursor.getColumnIndex(
                         MediaStore.Images.Media.BUCKET_DISPLAY_NAME);
 
-                int imageUriColumn = cur.getColumnIndex(
+                int imageUriColumn = cursor.getColumnIndex(
                         MediaStore.Images.Media.DATA);
 
-                int imageIdColumn = cur.getColumnIndex(
+                int imageIdColumn = cursor.getColumnIndex(
                         MediaStore.Images.Media._ID);
+
+                int imageIdOrientation = cursor.getColumnIndex(
+                        MediaStore.Images.Media.ORIENTATION);
 
                 do {
                     // Get the field values
-                    bucketName = cur.getString(bucketNameColumn);
-                    data = cur.getString(imageUriColumn);
-                    imageId = cur.getString(imageIdColumn);
+                    bucketName = cursor.getString(bucketNameColumn);
+                    data = cursor.getString(imageUriColumn);
+                    imageId = cursor.getString(imageIdColumn);
+                    rotationId = cursor.getString(imageIdOrientation);
 
                     // Adding a new PhonePhoto object to phonePhotos vector
                     Photo phonePhoto = new Photo();
                     phonePhoto.setAlbumName(bucketName);
                     phonePhoto.setPhotoPath(data);
                     phonePhoto.setId(Integer.valueOf(imageId));
+                    phonePhoto = Utils.setPhotoDimensions(phonePhoto);
+
+                    if (!TextUtils.isEmpty(rotationId)) {
+                        int rotation = Integer.parseInt(rotationId);
+                        phonePhoto.setOrientation((rotation == 0 || rotation == 180) ? Orientation.LANDSCAPE : Orientation.PORTRAIT);
+                    }
 
                     if (albumsNames.contains(bucketName)) {
                         for (PhotoAlbum album : phoneAlbums) {
@@ -89,14 +131,12 @@ public class DeviceManager {
                         albumsNames.add(bucketName);
                     }
 
-                } while (cur.moveToNext());
+                } while (cursor.moveToNext());
             }
 
-            cur.close();
-            listener.onComplete(phoneAlbums);
-        } else {
-            listener.onError();
+            cursor.close();
         }
+        return phoneAlbums;
     }
 
 }

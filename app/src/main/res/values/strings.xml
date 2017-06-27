@@ -12,8 +12,6 @@
     <string name="label_menu_item_faq">FAQ</string>
     <string name="label_menu_item_contact">Contact</string>
 
-    <string name="title_screen_select_product">Select a product</string>
-
     <string name="name_product_prints">Prints</string>
     <string name="name_product_posters">Posters</string>
     <string name="name_product_canvas">Canvas</string>
@@ -45,19 +43,10 @@
     <string name="pieces_1000">1000+</string>
     <string name="label_select_pictures">Select Pictures</string>
 
+    <string name="paper_classic">Paper</string>
+    <string name="canvas">Canvas</string>
     <string name="paper_glossy">Glossy</string>
     <string name="paper_matte">Matte</string>
-
-    <string name="cm_10x10">10x10 cm</string>
-    <string name="cm_10x13">10x13 cm</string>
-    <string name="cm_9x13">9x13 cm</string>
-    <string name="cm_10x15">10x15 cm</string>
-    <string name="cm_13x18">13x18 cm</string>
-    <string name="cm_15x21">15x21 cm</string>
-    <string name="cm_20x30">20x30 cm</string>
-    <string name="cm_20x20">20x20 cm</string>
-    <string name="cm_30x30">30x30 cm</string>
-    <string name="cm_15x20">15x20 cm</string>
 
     <string name="permission_details_external_storage">We need this permission to display local photos</string>
     <string name="permission_denied">We do not have permission to continue</string>
@@ -73,16 +62,71 @@
     <string name="title_alertDialog_onBackPressed_emptyYourSelection">Empty your selection</string>
     <string name="message_alertDialog_onBackPressed_emptyYourSelection">Going back to home screen will empty your selection.\nAre you sure?</string>
     <string name="label_confirm">Confirm</string>
+
     <plurals name="selectedPhotos">
-        <item quantity="one">photo</item>
-        <item quantity="other">photos</item>
+        <item quantity="one">selected photo</item>
+        <item quantity="other">selected photos</item>
     </plurals>
 
-    <string name="photo_crop_hint">You can drag and scale!</string>
-    <string name="photo_crop_rotate">ROTATE</string>
-    <string name="photo_crop_save">NEXT ></string>
-    <string name="photo_print_regular_width">10.2</string>
-    <string name="photo_print_regular_height">13.6</string>
     <string name="hint_addText">Add Text</string>
+
+    <string name="title_alertDialog_lowPpi">Image Quality</string>
+    <string name="message_alertDialog_lowPpi">This image may appear blurry when printed. You may want to replace it with a higher image quality image.</string>
+    <string name="close">Close</string>
+
+    <string name="label_edit">Edit</string>
+
+    <string name="title_alertDialog_onCartProductDelete"></string>
+    <string name="message_alertDialog_onCartProductDelete">Are you sure you want to delete this item?</string>
+    <string name="label_total">Total</string>
+    <string name="label_addProduct">Add Product</string>
+    <string name="label_checkout">Checkout</string>
+    <string name="label_add">Add</string>
+    <string name="label_cancel">Cancel</string>
+
+    <string name="name_item_landscape">Landscape</string>
+    <string name="label_pressToAdd">Press to add</string>
+    <string name="label_coverPhoto">Cover\nphoto</string>
+    <string name="label_addPages">Add Pages</string>
+    <string name="label_removePages">Remove Pages</string>
+
+    <string name="edit">Edit</string>
+    <string name="sp_ok_NORMAL">OK</string>
+    <string name="sp_cancel_SHORT">Cancel</string>
+    <string name="label_remove">Remove</string>
+    <string name="label_caption">Caption</string>
+    <string name="label_collage">Collage</string>
+
+    <string name="name_item_poster_24">Mosaic 24 photos</string>
+    <string name="name_item_poster_36">Mosaic 36 photos</string>
+    <string name="name_item_poster_classic_regular">Classic regular</string>
+    <string name="name_item_poster_classic_square">Classic square</string>
+    <string name="message_required_number_of_photos">Select %d photos</string>
+    <string name="message_required_number_of_photos_limit">You selected maximum number of photos</string>
+
+    <!-- Login -->
+    <string name="hint_firstname">First name</string>
+    <string name="hint_lastname">Last name</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="label_forgot_password">Forgot password?</string>
+    <string name="label_login">Login</string>
+    <string name="label_register">Register</string>
+    <string name="label_login_buttons">Login with email and password</string>
+    <string name="label_register_buttons">Register with your name, email and password</string>
+    <string name="label_button_sign_in">Sign in</string>
+    <string name="label_button_create_account">Create account</string>
+
+    <!--Checkout-->
+    <string name="screenTitle_checkoutActivity">Checkout</string>
+    <string name="label_contact_person">Contact person</string>
+    <string name="label_delivery_address">Delivery address</string>
+    <string name="label_delivery_method">Delivery method</string>
+    <string name="hint_full_name">Name and surname</string>
+    <string name="hint_phone_number">Phone number</string>
+    <string name="hint_address">Address</string>
+    <string name="hint_city_and_county">City and county</string>
+    <string name="label_delivery_method_express">Express</string>
+    <string name="label_delivery_method_club">Club</string>
 
 </resources>

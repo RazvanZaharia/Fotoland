@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <LinearLayout
+        android:id="@+id/layou_photo_container"
+        app:layout_widthPercent="100%"
+        app:layout_aspectRatio="150%"
+        android:layout_margin="@dimen/collage_layout_image_margin"
+        android:background="@drawable/gallery_collage_photo_frame">
+
+        <eu.mobiletouch.fotoland.collage.PhotoView
+            android:id="@+id/image_frame_1_1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_margin="@dimen/collage_image_margin"
+            android:background="@color/light_gray"/>
+    </LinearLayout>
+
+</android.support.percent.PercentRelativeLayout>

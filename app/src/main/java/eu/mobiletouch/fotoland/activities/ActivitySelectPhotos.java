@@ -1,5 +1,6 @@
 package eu.mobiletouch.fotoland.activities;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -7,10 +8,10 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.Bind;
 import eu.mobiletouch.fotoland.R;
@@ -45,7 +46,14 @@ public class ActivitySelectPhotos extends BaseToolbarActivity implements MvpActi
     public static void launch(@NonNull Context ctx, @NonNull UserSelections userSelections) {
         Intent selectPhotosIntent = new Intent(ctx, ActivitySelectPhotos.class);
         selectPhotosIntent.putExtra(Constants.USER_SELECTION, userSelections);
+        selectPhotosIntent.putExtra(Constants.ARG_SINGLE_PHOTO_SELECT, false);
         ctx.startActivity(selectPhotosIntent);
+    }
+
+    public static Intent getStartIntentForSinglePictureSelect(@NonNull Context ctx) {
+        Intent selectPhotosIntent = new Intent(ctx, ActivitySelectPhotos.class);
+        selectPhotosIntent.putExtra(Constants.ARG_SINGLE_PHOTO_SELECT, true);
+        return selectPhotosIntent;
     }
 
     @Override
@@ -54,13 +62,33 @@ public class ActivitySelectPhotos extends BaseToolbarActivity implements MvpActi
     }
 
     @Override
+    protected String getScreenName() {
+        return null;
+    }
+
+    @Override
+    protected boolean isProductScreen() {
+        return true;
+    }
+
+    @Override
+    protected boolean showCartIcon() {
+        return false;
+    }
+
+    @Override
     protected void init() {
         super.init();
 
         mPresenterActivitySelectPhotos = new PresenterActivitySelectPhotos(this);
         mPresenterActivitySelectPhotos.attachView(this);
-        mPresenterActivitySelectPhotos.init((UserSelections) getIntent().getSerializableExtra(Constants.USER_SELECTION));
-
+        if (getIntent().getBooleanExtra(Constants.ARG_SINGLE_PHOTO_SELECT, false)) {
+            mBtnNext.setVisibility(View.INVISIBLE);
+            mPresenterActivitySelectPhotos.initForSinglePictureSelect();
+        } else {
+            mBtnNext.setVisibility(View.VISIBLE);
+            mPresenterActivitySelectPhotos.init((UserSelections) getIntent().getSerializableExtra(Constants.USER_SELECTION));
+        }
     }
 
     @Override
@@ -109,6 +137,27 @@ public class ActivitySelectPhotos extends BaseToolbarActivity implements MvpActi
         mBtnNext.setEnabled(enable);
     }
 
+    @Override
+    public void showLoadingDialog() {
+        showLoading();
+    }
+
+    @Override
+    public void dismissLoadingDialog() {
+        dismissLoading();
+    }
+
+    @Override
+    public void setResultAndFinish(@NonNull Intent data) {
+        setResult(RESULT_OK, data);
+        finish();
+    }
+
+    @Override
+    public void showToastMessage(@NonNull String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
     /*
     *
     * OnSelectPhotosFragmentsListener
@@ -144,6 +193,7 @@ public class ActivitySelectPhotos extends BaseToolbarActivity implements MvpActi
                         })
                         .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
                                 // do nothing
                             }
                         })

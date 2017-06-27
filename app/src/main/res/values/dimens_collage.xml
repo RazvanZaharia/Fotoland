@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resources>
+    <dimen name="photo_crop_width">280dip</dimen>
+    <dimen name="photo_crop_stroke_width">1dip</dimen>
+    <dimen name="photo_preview_size">200dip</dimen>
+
+    <dimen name="collage_layout_image_margin">1.5dip</dimen>
+
+    <dimen name="collage_layout_padding">1.5dip</dimen>
+
+    <dimen name="collage_image_margin">0.5dip</dimen>
+
+    <dimen name="collage_layout_margin_top_bottom">17.0dip</dimen>
+
+    <dimen name="collage_layout_margin_start_end">17.0dip</dimen>
+
+    <dimen name="collage_layout_icon_size">68.0dip</dimen>
+
+    <dimen name="collage_layout_icon_margin">0.0dip</dimen>
+
+    <dimen name="collage_layout_list_padding_top_bottom">0.0dip</dimen>
+
+    <dimen name="collage_layout_list_padding_start_end">0.0dip</dimen>
+
+    <dimen name="drawer_list_item_size">16.0sp</dimen>
+
+    <dimen name="list_index_font_size">13.0sp</dimen>
+
+    <item name="drawer_index_font_size" type="dimen">@dimen/list_index_font_size</item>
+
+    <dimen name="drawer_item_height">44.0dip</dimen>
+
+    <dimen name="drawer_header_height">38.0dip</dimen>
+
+    <dimen name="drawer_divider">0.5dip</dimen>
+
+    <dimen name="drawer_padding_start">16.0dip</dimen>
+
+    <dimen name="albumset_slot_gap">1.0dip</dimen>
+
+    <dimen name="lgalbumset_slot_gap">1.0dip</dimen>
+
+    <dimen name="lgalbumset_left_margin">5.0dip</dimen>
+
+    <dimen name="lgalbumset_icon_offset">2.0dip</dimen>
+
+    <dimen name="albumset_label_background_height">36.0dip</dimen>
+
+    <dimen name="albumset_label_background_height_max">90.0dip</dimen>
+
+    <dimen name="albumset_title_offset">2.0dip</dimen>
+
+    <dimen name="albumset_count_offset">2.0dip</dimen>
+
+    <dimen name="albumset_title_font_size">18.0dip</dimen>
+
+    <dimen name="albumset_title_font_size_max">30.0dip</dimen>
+
+    <dimen name="albumset_count_font_size">14.0dip</dimen>
+
+    <dimen name="albumset_left_margin">2.0dip</dimen>
+
+    <dimen name="albumset_icon_size">26.0dip</dimen>
+
+    <dimen name="albumset_checkbox_offset">0.0dip</dimen>
+
+    <dimen name="albumset_selection_font_size">50.0dip</dimen>
+
+    <dimen name="camera_albumset_count_offset">10.0dip</dimen>
+
+    <dimen name="camera_albumset_title_font_size">18.0sp</dimen>
+
+    <dimen name="camera_albumset_count_font_size">14.0sp</dimen>
+
+    <dimen name="camera_albumset_title_right_margin">20.0dip</dimen>
+
+    <dimen name="timestamp_label_height">44.0dip</dimen>
+
+    <dimen name="timestamp_label_divider_height">1.0dip</dimen>
+
+    <item name="timestamp_title_font_size" type="dimen">@dimen/list_index_font_size</item>
+
+    <dimen name="timestamp_title_start_offset">16.0dip</dimen>
+
+    <dimen name="timestamp_title_max_width">134.0dip</dimen>
+
+    <dimen name="timestamp_count_font_size">14.0sp</dimen>
+
+    <dimen name="timestamp_year_thumbnail_size">15.0dip</dimen>
+
+    <dimen name="timestamp_month_thumbnail_size">30.0dip</dimen>
+
+    <dimen name="timestamp_view_change_button_text_padding">8.0dip</dimen>
+
+    <item name="timestamp_view_change_button_text_font_size" type="dimen">
+        @dimen/list_index_font_size
+    </item>
+
+    <dimen name="timestamp_view_change_button_offset">3.5dip</dimen>
+
+    <dimen name="album_slot_gap">1.0dip</dimen>
+
+    <dimen name="lgalbum_slot_gap">1.0dip</dimen>
+
+    <dimen name="lgalbum_hover_frame_padding">0.0dip</dimen>
+
+    <dimen name="minimumsize_w">136.5dip</dimen>
+
+    <dimen name="minimumsize_h">136.5dip</dimen>
+
+    <dimen name="lg_min_thumbnail_size">60.0dip</dimen>
+
+    <dimen name="lg_camera_slot_height">150.0dip</dimen>
+
+    <dimen name="cache_pin_size">24.0dip</dimen>
+
+    <dimen name="cache_pin_margin">8.0dip</dimen>
+
+    <dimen name="filmstrip_top_margin">2.0dip</dimen>
+
+    <dimen name="filmstrip_mid_margin">2.0dip</dimen>
+
+    <dimen name="filmstrip_bottom_margin">0.0dip</dimen>
+
+    <dimen name="filmstrip_thumb_size">68.0dip</dimen>
+
+    <dimen name="filmstrip_content_size">56.0dip</dimen>
+
+    <dimen name="filmstrip_grip_size">10.0dip</dimen>
+
+    <dimen name="filmstrip_bar_size">10.0dip</dimen>
+
+    <dimen name="filmstrip_grip_width">96.0dip</dimen>
+
+    <dimen name="lgphoto_loading_font_size">14.0sp</dimen>
+
+    <dimen name="lgphoto_gesture_view_guide_padding_y">5.0dip</dimen>
+
+    <dimen name="button_view_hover_frame_padding">0.0dip</dimen>
+
+    <dimen name="select_all_checkbox_marginStart">16.0dip</dimen>
+
+    <dimen name="select_all_checkbox_paddingStart">24.0dip</dimen>
+
+    <dimen name="select_all_checkbox_paddingEnd">4.0dip</dimen>
+
+    <dimen name="select_all_selection_num_marginStart">4.0dip</dimen>
+
+    <dimen name="select_all_selection_num_marginEnd">16.0dip</dimen>
+
+    <dimen name="command_bar_button_max_width">256.0dip</dimen>
+
+    <dimen name="no_media_text_marginTop">16.0dip</dimen>
+
+    <dimen name="no_media_text_margin_side">16.0dip</dimen>
+
+    <dimen name="no_media_button_marginTop">16.0dip</dimen>
+
+    <dimen name="no_media_button_text_size">16.0sp</dimen>
+
+    <dimen name="no_media_button_width">220.0dip</dimen>
+
+    <dimen name="no_media_button_height">44.0dip</dimen>
+
+    <dimen name="lge_quick_scroll_index_offset_y">0.0dip</dimen>
+
+    <dimen name="lge_quick_scroll_thin_bar_height_min">14.0dip</dimen>
+
+    <dimen name="lge_quick_scroll_index_year_fontsize">15.0dip</dimen>
+
+    <dimen name="lge_quick_scroll_index_month_fontsize">16.0dip</dimen>
+
+    <dimen name="lge_quick_scroll_index_day_fontsize">48.0dip</dimen>
+
+    <dimen name="lge_quick_scroll_index_month_day_gap">8.0dip</dimen>
+
+    <dimen name="date_info_string">19.5dip</dimen>
+
+    <dimen name="action_bar_default_height">48.0dip</dimen>
+
+    <dimen name="action_mode_padding_left">24.0dip</dimen>
+
+    <dimen name="geo_tag_offset">8.0dip</dimen>
+
+    <dimen name="geo_tag_font_size">16.0sp</dimen>
+
+    <dimen name="geo_tag_info_height">51.0dip</dimen>
+
+    <dimen name="vr_panorama_offset">6.0dip</dimen>
+
+    <dimen name="action_bar_dropdown_menu_font_size">18.0dip</dimen>
+
+    <dimen name="config_prefDialogWidth">290.0dip</dimen>
+
+    <dimen name="notification_large_icon_length">40.0dip</dimen>
+
+    <dimen name="notification_large_icon_margin">12.0dip</dimen>
+
+    <dimen name="notification_dsdr_text_padding_end">40.0dip</dimen>
+
+    <dimen name="crop_cue_touch_tolerance_max">15.0dip</dimen>
+
+    <dimen name="crop_cue_touch_tolerance_min">10.0dip</dimen>
+
+    <dimen name="crop_cue_touch_tolerance_out_bounds">20.0dip</dimen>
+
+    <dimen name="burstshot_control_bar_height">66.25dip</dimen>
+
+    <dimen name="burstshot_progress_horizontal_gap">6.5dip</dimen>
+
+    <dimen name="burstshot_progress_count_font_size">14.0dip</dimen>
+
+    <dimen name="recently_font_size">18.0dip</dimen>
+
+    <dimen name="recently_label_font_size">14.0dip</dimen>
+
+    <dimen name="recently_text_top_padding">7.0dip</dimen>
+
+    <dimen name="recently_text_bottom_padding">7.0dip</dimen>
+
+    <dimen name="recently_text_left_padding">3.0dip</dimen>
+
+    <dimen name="list_content_label_font_size">16.0sp</dimen>
+
+    <dimen name="list_content_duration_font_size">12.0sp</dimen>
+
+    <dimen name="list_text_side_padding">16.0dip</dimen>
+
+    <dimen name="list_text_between_padding">4.0dip</dimen>
+
+    <dimen name="list_slot_height">90.0dip</dimen>
+
+    <dimen name="list_divider_width">0.5dip</dimen>
+
+    <dimen name="index_height">38.0dip</dimen>
+
+    <item name="index_font_size" type="dimen">@dimen/list_index_font_size</item>
+
+    <dimen name="index_left_margin">16.0dip</dimen>
+
+    <dimen name="memories_map_marker_padding">1.0dip</dimen>
+
+    <dimen name="memories_maps_padding">46.0dip</dimen>
+
+    <dimen name="memories_video_title_font_size">54.0px</dimen>
+
+    <dimen name="memories_video_date_font_size">41.0px</dimen>
+
+    <dimen name="memories_albumset_label_left_margin">13.0dip</dimen>
+
+    <dimen name="memories_albumset_label_background_height">25.0dip</dimen>
+
+    <dimen name="memories_albumset_label_count_offset">13.0dip</dimen>
+
+    <dimen name="memories_albumset_label_title_offset">4.0dip</dimen>
+
+    <dimen name="memories_album_slide_title_font_size">20.0dip</dimen>
+
+    <dimen name="memories_album_slide_date_font_size">12.0dip</dimen>
+
+    <dimen name="memories_album_slide_label_background_height">60.0dip</dimen>
+
+    <dimen name="memories_album_slide_label_count_offset">80.0dip</dimen>
+
+    <dimen name="memories_save_video_margin">9.0dip</dimen>
+
+    <dimen name="photopage_undobar_hover_frame_padding">4.0dip</dimen>
+
+    <dimen name="toast_font_size">16.0sp</dimen>
+
+    <dimen name="undo_toast_start_port_margin">20.0dip</dimen>
+
+    <dimen name="undo_toast_start_land_margin">20.0dip</dimen>
+
+    <dimen name="undo_toast_height">48.0dip</dimen>
+
+    <dimen name="undo_toast_content_start_margin">24.0dip</dimen>
+
+    <dimen name="undo_toast_content_gap">12.0dip</dimen>
+
+    <dimen name="undo_toast_content_small_gap">12.0dip</dimen>
+
+    <dimen name="undo_toast_divider_width">1.0dip</dimen>
+
+    <dimen name="undo_toast_divider_height">24.0dip</dimen>
+
+    <dimen name="undo_toast_font_size">14.0sp</dimen>
+
+    <dimen name="undo_toast_max_width">576.0dip</dimen>
+
+    <dimen name="framework_resolver_max_width">312.0dip</dimen>
+
+    <dimen name="framework_resolver_app_icon_size">48.0dip</dimen>
+
+    <dimen name="nearbydevices_help_activity_land_first_title_margin_top">16.0dip</dimen>
+
+    <dimen name="nearbydevices_help_activity_land_first_title_margin_bottom">30.0dip</dimen>
+
+    <dimen name="nearbydevices_help_activity_land_second_title_margin_top">16.0dip</dimen>
+
+    <dimen name="nearbydevices_help_activity_land_second_title_margin_bottom">12.0dip</dimen>
+
+    <dimen name="nearbydevices_help_activity_port_first_title_margin_top">24.0dip</dimen>
+
+    <dimen name="nearbydevices_help_activity_port_first_title_margin_bottom">12.0dip</dimen>
+
+    <dimen name="nearbydevices_help_activity_port_first_image_margin">8.0dip</dimen>
+
+    <dimen name="nearbydevices_help_activity_port_second_title_margin_bottom">12.0dip</dimen>
+
+    <dimen name="nearbydevices_help_activity_port_left_right_margin">16.0dip</dimen>
+
+    <dimen name="nearbydevices_help_activity_land_left_right_margin">16.0dip</dimen>
+
+    <dimen name="nearbydevices_help_activity_land_top_margin">28.0dip</dimen>
+
+    <dimen name="nearbydevices_help_activity_land_top_margin_att">59.0dip</dimen>
+
+    <dimen name="nearbydevices_help_activity_land_bottom_margin">20.25dip</dimen>
+
+    <dimen name="nearbydevices_help_activity_land_img_bottom_margin">22.25dip</dimen>
+
+    <dimen name="nearbydevices_help_activity_explain_font_size">15.0sp</dimen>
+
+    <dimen name="nearbydevices_help_activity_explain_line_spacing">4.0dip</dimen>
+
+</resources>

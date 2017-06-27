@@ -17,4 +17,7 @@
     <color name="photo_crop_overlay_bg">#ffe9ecf2</color>
     <color name="window_background">#1C1C1C</color>
     <color name="overlay">#AA1C1C1C</color>
+
+    <color name="photo_crop_dim_color">#cc000000</color>
+    <color name="photo_crop_highlight_color">#fff</color>
 </resources>

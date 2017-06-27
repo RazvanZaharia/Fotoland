@@ -39,17 +39,36 @@ public class ActivitySelectItem extends BaseToolbarActivity implements MvpActivi
     @Bind(R.id.tv_screen_title)
     TextView mTvScreenTitle;
 
+    private PresenterActivitySelectItem mPresenterActivitySelectItem;
+
     public static void launch(@NonNull Context ctx, @NonNull UserSelections product) {
         Intent productIntent = new Intent(ctx, ActivitySelectItem.class);
         productIntent.putExtra(Constants.USER_SELECTION, product);
         ctx.startActivity(productIntent);
     }
 
-    private PresenterActivitySelectItem mPresenterActivitySelectItem;
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+    }
 
     @Override
     protected int getLayoutResId() {
         return R.layout.activity_items;
+    }
+
+    @Override
+    protected String getScreenName() {
+        UserSelections userSelections = (UserSelections) getIntent().getSerializableExtra(Constants.USER_SELECTION);
+        if (userSelections != null && userSelections.getSelectedProduct() != null) {
+            return userSelections.getSelectedProduct().getName();
+        }
+        return null;
+    }
+
+    @Override
+    protected boolean isProductScreen() {
+        return true;
     }
 
     @Override

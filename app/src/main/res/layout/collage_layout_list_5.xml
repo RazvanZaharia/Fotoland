@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/layoutlist_view_5"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:paddingBottom="@dimen/collage_layout_list_padding_top_bottom"
+              android:paddingEnd="@dimen/collage_layout_list_padding_start_end"
+              android:paddingStart="@dimen/collage_layout_list_padding_start_end"
+              android:paddingTop="@dimen/collage_layout_list_padding_top_bottom">
+
+    <ImageView
+        android:id="@+id/collage_layout_5_1"
+        android:layout_width="@dimen/collage_layout_icon_size"
+        android:layout_height="@dimen/collage_layout_icon_size"
+        android:layout_marginEnd="@dimen/collage_layout_icon_margin"
+        android:layout_marginStart="@dimen/collage_layout_icon_margin"
+        android:background="@drawable/gallery_collage_5_01"/>
+
+    <ImageView
+        android:id="@+id/collage_layout_5_2"
+        android:layout_width="@dimen/collage_layout_icon_size"
+        android:layout_height="@dimen/collage_layout_icon_size"
+        android:layout_marginEnd="@dimen/collage_layout_icon_margin"
+        android:layout_marginStart="@dimen/collage_layout_icon_margin"
+        android:background="@drawable/gallery_collage_5_02"/>
+
+    <ImageView
+        android:id="@+id/collage_layout_5_3"
+        android:layout_width="@dimen/collage_layout_icon_size"
+        android:layout_height="@dimen/collage_layout_icon_size"
+        android:layout_marginEnd="@dimen/collage_layout_icon_margin"
+        android:layout_marginStart="@dimen/collage_layout_icon_margin"
+        android:background="@drawable/gallery_collage_5_03"/>
+
+    <ImageView
+        android:id="@+id/collage_layout_5_4"
+        android:layout_width="@dimen/collage_layout_icon_size"
+        android:layout_height="@dimen/collage_layout_icon_size"
+        android:layout_marginEnd="@dimen/collage_layout_icon_margin"
+        android:layout_marginStart="@dimen/collage_layout_icon_margin"
+        android:background="@drawable/gallery_collage_5_04"/>
+
+    <ImageView
+        android:id="@+id/collage_layout_5_5"
+        android:layout_width="@dimen/collage_layout_icon_size"
+        android:layout_height="@dimen/collage_layout_icon_size"
+        android:layout_marginEnd="@dimen/collage_layout_icon_margin"
+        android:layout_marginStart="@dimen/collage_layout_icon_margin"
+        android:background="@drawable/gallery_collage_5_05"/>
+
+    <ImageView
+        android:id="@+id/collage_layout_5_6"
+        android:layout_width="@dimen/collage_layout_icon_size"
+        android:layout_height="@dimen/collage_layout_icon_size"
+        android:layout_marginEnd="@dimen/collage_layout_icon_margin"
+        android:layout_marginStart="@dimen/collage_layout_icon_margin"
+        android:background="@drawable/gallery_collage_5_06"/>
+
+    <ImageView
+        android:id="@+id/collage_layout_5_7"
+        android:layout_width="@dimen/collage_layout_icon_size"
+        android:layout_height="@dimen/collage_layout_icon_size"
+        android:layout_marginEnd="@dimen/collage_layout_icon_margin"
+        android:layout_marginStart="@dimen/collage_layout_icon_margin"
+        android:background="@drawable/gallery_collage_5_07"/>
+
+    <ImageView
+        android:id="@+id/collage_layout_5_8"
+        android:layout_width="@dimen/collage_layout_icon_size"
+        android:layout_height="@dimen/collage_layout_icon_size"
+        android:layout_marginEnd="@dimen/collage_layout_icon_margin"
+        android:layout_marginStart="@dimen/collage_layout_icon_margin"
+        android:background="@drawable/gallery_collage_5_08"/>
+
+    <ImageView
+        android:id="@+id/collage_layout_5_9"
+        android:layout_width="@dimen/collage_layout_icon_size"
+        android:layout_height="@dimen/collage_layout_icon_size"
+        android:layout_marginEnd="@dimen/collage_layout_icon_margin"
+        android:layout_marginStart="@dimen/collage_layout_icon_margin"
+        android:background="@drawable/gallery_collage_5_09"/>
+
+    <ImageView
+        android:id="@+id/collage_layout_5_10"
+        android:layout_width="@dimen/collage_layout_icon_size"
+        android:layout_height="@dimen/collage_layout_icon_size"
+        android:layout_marginEnd="@dimen/collage_layout_icon_margin"
+        android:layout_marginStart="@dimen/collage_layout_icon_margin"
+        android:background="@drawable/gallery_collage_5_10"/>
+</LinearLayout>

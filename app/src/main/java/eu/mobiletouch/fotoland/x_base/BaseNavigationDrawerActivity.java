@@ -18,6 +18,8 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import eu.mobiletouch.fotoland.R;
+import eu.mobiletouch.fotoland.activities.ActivityCart;
+import eu.mobiletouch.fotoland.utils.Utils;
 
 /**
  * Created on 08-Aug-16.
@@ -31,14 +33,18 @@ public abstract class BaseNavigationDrawerActivity extends BaseActivity {
     protected FrameLayout contentFrameLayout;
     protected Toolbar toolbar;
 
-    abstract protected String getScreenName();
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initViews();
         setupToolbar();
         setContentView(navigationDrawerParentLayout);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setToolbarBadge();
     }
 
     @Override
@@ -142,9 +148,34 @@ public abstract class BaseNavigationDrawerActivity extends BaseActivity {
     }
 
     private void setToolbarActions() {
-        if (!TextUtils.isEmpty(getScreenName())) {
-            ((TextView) toolbar.findViewById(R.id.tv_screenName)).setText(getScreenName());
+        if (!TextUtils.isEmpty(getScreenName()) && toolbar.findViewById(R.id.tv_screen_title) != null) {
+            ((TextView) toolbar.findViewById(R.id.tv_screen_title)).setText(getScreenName());
         }
+    }
+
+    private void setToolbarBadge() {
+        if (toolbar.findViewById(R.id.layout_toolbar_cart) != null && showCartIcon()) {
+            toolbar.findViewById(R.id.layout_toolbar_cart).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ActivityCart.launch(BaseNavigationDrawerActivity.this);
+                }
+            });
+
+            if (toolbar.findViewById(R.id.tv_toolbar_cartBadge) != null) {
+                int cartProductsCount = Utils.getTotalCartProductsCount(this);
+                if (cartProductsCount == 0) {
+                    toolbar.findViewById(R.id.layout_toolbar_cart).setVisibility(View.GONE);
+                } else {
+                    toolbar.findViewById(R.id.layout_toolbar_cart).setVisibility(View.VISIBLE);
+                    ((TextView) toolbar.findViewById(R.id.tv_toolbar_cartBadge)).setText(String.valueOf(Utils.getTotalCartProductsCount(this)));
+                }
+            }
+        }
+    }
+
+    protected boolean showCartIcon() {
+        return true;
     }
 
     protected void toggleDrawer() {

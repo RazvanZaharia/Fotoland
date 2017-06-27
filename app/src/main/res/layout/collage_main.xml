@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:background="#ff323947"
+              android:orientation="vertical">
+
+    <com.lge.gallery.collage.OldCollageView
+        android:id="@+id/collage_view_normal"
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:layout_marginBottom="@dimen/collage_layout_margin_top_bottom"
+        android:layout_marginEnd="@dimen/collage_layout_margin_start_end"
+        android:layout_marginStart="@dimen/collage_layout_margin_start_end"
+        android:layout_marginTop="@dimen/collage_layout_margin_top_bottom"
+        android:layout_weight="1.0"
+        android:background="#ffffffff"
+        android:layoutDirection="ltr"/>
+
+    <com.lge.gallery.collage.CollageLayoutListBar
+        android:id="@+id/collagelist_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gallery_collage_layout_bg"/>
+
+    <include
+        android:id="@+id/collage_menu_button"
+        layout="@layout/main_button_layer"
+        android:visibility="visible"/>
+</LinearLayout>

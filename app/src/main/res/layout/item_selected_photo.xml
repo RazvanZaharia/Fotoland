@@ -22,15 +22,15 @@
 
     <LinearLayout
         android:id="@+id/layout_photo"
-        android:layout_width="wrap_content"
+        android:layout_width="315dp"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:padding="5dp"
         android:layout_centerHorizontal="true"
         android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/layout_image"
-            android:layout_width="wrap_content"
+            android:layout_width="310dp"
             android:layout_height="wrap_content"
             android:padding="8dp"
             android:background="@color/white"
@@ -38,18 +38,21 @@
 
             <ImageView
                 android:id="@+id/iv_photo"
-                android:layout_width="300dp"
-                android:layout_height="300dp"/>
+                android:layout_width="@dimen/item_list_selectedPhotos"
+                android:layout_height="@dimen/item_list_selectedPhotos"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="centerCrop"/>
 
-            <EditText
+            <TextView
                 android:id="@+id/tv_message"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="10dp"
                 android:layout_margin="5dp"
                 android:textStyle="italic"
                 android:gravity="center"
                 android:hint="@string/hint_addText"
-                android:textSize="14sp"/>
+                android:textSize="15sp"/>
 
         </LinearLayout>
 
@@ -102,7 +105,14 @@
                 android:src="@drawable/crop"/>
 
         </LinearLayout>
-
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_alert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/layout_photo"
+        android:padding="20dp"
+        android:src="@drawable/alert"/>
 
 </RelativeLayout>

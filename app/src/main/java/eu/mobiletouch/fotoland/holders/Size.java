@@ -12,11 +12,13 @@ public class Size implements Serializable {
 
     @DrawableRes
     private int mIconRes;
-    private String mSize;
+    private float mWidth; //in cm
+    private float mHeight; // in cm
 
-    public Size(int iconRes, String size) {
-        mIconRes = iconRes;
-        mSize = size;
+    public Size(int iconRes, float width, float height) {
+        this.mIconRes = iconRes;
+        this.mHeight = height;
+        this.mWidth = width;
     }
 
     public int getIconRes() {
@@ -28,17 +30,33 @@ public class Size implements Serializable {
         return this;
     }
 
-    public String getSize() {
-        return mSize;
+    public float getHeight() {
+        return mHeight;
     }
 
-    public Size setSize(String name) {
-        mSize = name;
+    public Size setHeight(float height) {
+        mHeight = height;
         return this;
+    }
+
+    public float getWidth() {
+        return mWidth;
+    }
+
+    public Size setWidth(float width) {
+        mWidth = width;
+        return this;
+    }
+
+    public String getSizeToDisplay() {
+        return mWidth + "x" + mHeight;
     }
 
     @Override
     public boolean equals(Object o) {
-        return o instanceof Size && ((Size) o).getSize().equals(mSize) && ((Size) o).mIconRes == mIconRes;
+        return o instanceof Size
+                && ((Size) o).mWidth == this.mWidth
+                && ((Size) o).mHeight == this.mHeight
+                && ((Size) o).mIconRes == this.mIconRes;
     }
 }

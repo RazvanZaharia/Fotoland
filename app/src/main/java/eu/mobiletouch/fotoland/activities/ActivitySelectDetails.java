@@ -71,6 +71,20 @@ public class ActivitySelectDetails extends BaseToolbarActivity implements MvpAct
     }
 
     @Override
+    protected String getScreenName() {
+        UserSelections userSelections = (UserSelections) getIntent().getSerializableExtra(Constants.USER_SELECTION);
+        if (userSelections != null && userSelections.getSelectedProduct() != null) {
+            return userSelections.getSelectedProduct().getName();
+        }
+        return null;
+    }
+
+    @Override
+    protected boolean isProductScreen() {
+        return true;
+    }
+
+    @Override
     protected void init() {
         super.init();
         mRvPaperType.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
@@ -78,7 +92,7 @@ public class ActivitySelectDetails extends BaseToolbarActivity implements MvpAct
 
         mPresenterActivitySelectDetails = new PresenterActivitySelectDetails(this);
         mPresenterActivitySelectDetails.attachView(this);
-        mPresenterActivitySelectDetails.init(getIntent());
+        mPresenterActivitySelectDetails.init((UserSelections) getIntent().getSerializableExtra(Constants.USER_SELECTION));
     }
 
     @Override
@@ -123,23 +137,23 @@ public class ActivitySelectDetails extends BaseToolbarActivity implements MvpAct
     }
 
     @Override
-    public void notifyPapersAdapter() {
-        mAdapterRvPaperType.notifyDataSetChanged();
-    }
-
-    @Override
     public void notifySizesAdapter() {
         mAdapterRvPhotoSize.notifyDataSetChanged();
     }
 
     @Override
-    public void setSelectedPaper(@NonNull String paperName) {
-        mTvSelectedPaperType.setText(paperName);
+    public void setSelectedPhotoSize(@NonNull String photoSize) {
+        mTvSelectedPhotoSize.setText(photoSize);
     }
 
     @Override
-    public void setSelectedPhotoSize(@NonNull String photoSize) {
-        mTvSelectedPhotoSize.setText(photoSize);
+    public void notifyPapersAdapter() {
+        mAdapterRvPaperType.notifyDataSetChanged();
+    }
+
+    @Override
+    public void setSelectedPaper(@NonNull String paperName) {
+        mTvSelectedPaperType.setText(paperName);
     }
 
     @Override

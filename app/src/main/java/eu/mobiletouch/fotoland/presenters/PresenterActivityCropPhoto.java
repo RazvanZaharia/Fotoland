@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 
 import java.io.File;
 
+import eu.mobiletouch.fotoland.enums.Orientation;
 import eu.mobiletouch.fotoland.holders.Item;
 import eu.mobiletouch.fotoland.holders.localPhotos.Photo;
 import eu.mobiletouch.fotoland.mvps.MvpActivityCropPhoto;
@@ -32,7 +33,14 @@ public class PresenterActivityCropPhoto extends BasePresenter<MvpActivityCropPho
         mPhoto = (Photo) intent.getSerializableExtra(Constants.PHOTO);
         mPhotoUri = Uri.fromFile(new File(mPhoto.getPhotoPath()));
 
-        getMvpView().setCustomRatio(mSelectedItem.getItemCustomRatio()[0], mSelectedItem.getItemCustomRatio()[1]);
+        if(mSelectedItem.getItemCustomRatio()[0] != 0 && mSelectedItem.getItemCustomRatio()[1] != 0) {
+            if (mPhoto.getOrientation() == Orientation.LANDSCAPE) {
+                getMvpView().setCustomRatio(mSelectedItem.getItemCustomRatio()[0], mSelectedItem.getItemCustomRatio()[1]);
+            } else {
+                getMvpView().setCustomRatio(mSelectedItem.getItemCustomRatio()[1], mSelectedItem.getItemCustomRatio()[0]);
+            }
+        }
+
         getMvpView().loadPhoto(mPhotoUri);
     }
 

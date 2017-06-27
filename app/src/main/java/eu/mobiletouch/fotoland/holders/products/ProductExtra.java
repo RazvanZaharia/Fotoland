@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import eu.mobiletouch.fotoland.R;
+import eu.mobiletouch.fotoland.enums.ProductType;
 import eu.mobiletouch.fotoland.holders.Item;
 import eu.mobiletouch.fotoland.holders.Product;
 
@@ -15,6 +16,7 @@ import eu.mobiletouch.fotoland.holders.Product;
  */
 public class ProductExtra extends Product implements Serializable {
     private static final long serialVersionUID = -3095130233449447523L;
+    private static final float PPI_LIMIT = 200;
 
     public ProductExtra(@NonNull Context ctx) {
         this.mIconRes = R.drawable.extra_banner;
@@ -28,5 +30,10 @@ public class ProductExtra extends Product implements Serializable {
     @Override
     protected ArrayList<Item> getAvailableItems(@NonNull Context ctx) {
         return null;
+    }
+
+    @Override
+    public float getPpiLimit() {
+        return PPI_LIMIT;
     }
 }

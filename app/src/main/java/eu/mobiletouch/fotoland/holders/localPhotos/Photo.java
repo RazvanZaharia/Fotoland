@@ -2,12 +2,15 @@ package eu.mobiletouch.fotoland.holders.localPhotos;
 
 import java.io.Serializable;
 
+import eu.mobiletouch.fotoland.enums.Orientation;
 import eu.mobiletouch.fotoland.enums.PhotoType;
+import eu.mobiletouch.fotoland.interfaces.SelectedPhotoItem;
+import eu.mobiletouch.fotoland.utils.ObjectsUtils;
 
 /**
  * Created on 27-Aug-16.
  */
-public class Photo implements Serializable {
+public class Photo implements Serializable, SelectedPhotoItem {
     private static final long serialVersionUID = 7090567631674145986L;
 
     private long id;
@@ -17,6 +20,12 @@ public class Photo implements Serializable {
     private PhotoType mPhotoType = PhotoType.LOCAL;
     private int mQuantity = 1;
     private int mRotation;
+    private Orientation mOrientation = Orientation.NO_ORIENTATION;
+    private float mPhotoWidth;
+    private float mPhotoHeight;
+    private float mPpi = 0.0f;
+    private String mCaptionText;
+    private int mPhotobookPage;
 
     public long getId() {
         return id;
@@ -47,7 +56,11 @@ public class Photo implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-        return o instanceof Photo && ((Photo) o).id == this.id && ((Photo) o).albumName.equals(this.albumName) && ((Photo) o).photoPath.equals(this.photoPath);
+        return o instanceof Photo
+                && ObjectsUtils.equals(((Photo) o).id, this.id)
+                && ObjectsUtils.equals(((Photo) o).albumName, this.albumName)
+                && ObjectsUtils.equals(((Photo) o).photoPath, this.photoPath)
+                && ObjectsUtils.equals(((Photo) o).croppedPhotoPath, this.croppedPhotoPath);
     }
 
     public PhotoType getPhotoType() {
@@ -81,7 +94,74 @@ public class Photo implements Serializable {
         return croppedPhotoPath;
     }
 
-    public void setCroppedPhotoPath(String croppedPhotoPath) {
+    public Photo setCroppedPhotoPath(String croppedPhotoPath) {
         this.croppedPhotoPath = croppedPhotoPath;
+        return this;
+    }
+
+    public Orientation getOrientation() {
+        if(mOrientation == Orientation.NO_ORIENTATION) {
+            if(mPhotoWidth >= mPhotoHeight) {
+                mOrientation = Orientation.LANDSCAPE;
+            }
+            else {
+                mOrientation = Orientation.PORTRAIT;
+            }
+        }
+        return mOrientation;
+    }
+
+    public Photo setOrientation(Orientation orientation) {
+        mOrientation = orientation;
+        return this;
+    }
+
+    public float getPpi() {
+        return mPpi;
+    }
+
+    public Photo setPpi(float ppi) {
+        mPpi = ppi;
+        return this;
+    }
+
+    public float getPhotoHeight() {
+        return mPhotoHeight;
+    }
+
+    public Photo setPhotoHeight(float photoHeight) {
+        mPhotoHeight = photoHeight;
+        return this;
+    }
+
+    public float getPhotoWidth() {
+        return mPhotoWidth;
+    }
+
+    public Photo setPhotoWidth(float photoWidth) {
+        mPhotoWidth = photoWidth;
+        return this;
+    }
+
+    public String getCaptionText() {
+        return mCaptionText;
+    }
+
+    public Photo setCaptionText(String captionText) {
+        mCaptionText = captionText;
+        return this;
+    }
+
+    public int getPhotobookPage() {
+        return mPhotobookPage;
+    }
+
+    public void setPhotobookPage(int photobookPage) {
+        mPhotobookPage = photobookPage;
+    }
+
+    @Override
+    public DisplayItemType getDisplayItemType() {
+        return DisplayItemType.PHOTO;
     }
 }

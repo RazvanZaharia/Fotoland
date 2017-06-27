@@ -1,7 +1,6 @@
 package eu.mobiletouch.fotoland.presenters;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -41,14 +40,13 @@ import eu.mobiletouch.fotoland.utils.Utils;
 /**
  * Created on 28-Aug-16.
  */
-public class PresenterFragmentFacebookPhotos extends BasePresenter<MvpFragmentFacebookPhotos> implements OnPhotoAlbumClickListener, OnPhotoClickListener {
+public class PresenterFragmentFacebookPhotos extends BasePhotosPresenter<MvpFragmentFacebookPhotos> implements OnPhotoAlbumClickListener, OnPhotoClickListener {
 
     private Activity mActivity;
     private CallbackManager mFacebookCallbackManager;
     private GraphRequestAsyncTask mAlbumsRequest;
     private GraphRequestAsyncTask mPhotosRequest;
     private Fragment mCurrentFragment;
-    private ProgressDialog mLoadingDialog;
     private OnSelectPhotosFragmentsListener mOnSelectPhotosFragmentsListener;
     private ArrayList<PhotoAlbum> mFbAlbums;
     private ArrayList<Photo> mPhotos;
@@ -85,7 +83,7 @@ public class PresenterFragmentFacebookPhotos extends BasePresenter<MvpFragmentFa
             return;
         }
         if (Utils.isNetworkAvailable(mActivity)) {
-            showLoading();
+            showLoading(mActivity);
             Bundle args = new Bundle();
             args.putString(GraphRequest.FIELDS_PARAM, "id,count,cover_photo,name");
             this.mAlbumsRequest = new GraphRequest(AccessToken.getCurrentAccessToken(), "me/albums", args, null, new FacebookAlbumsCallback()).executeAsync();
@@ -122,7 +120,7 @@ public class PresenterFragmentFacebookPhotos extends BasePresenter<MvpFragmentFa
             return;
         }
         if (Utils.isNetworkAvailable(mActivity)) {
-            showLoading();
+            showLoading(mActivity);
             Bundle args = new Bundle();
             args.putString(GraphRequest.FIELDS_PARAM, "id,images");
             args.putInt("limit", fbAlbum.getCount());
@@ -143,28 +141,14 @@ public class PresenterFragmentFacebookPhotos extends BasePresenter<MvpFragmentFa
                     Photo photo = new Photo()
                             .setPhotoType(PhotoType.FACEBOOK)
                             .setId(photoData.getLong(ShareConstants.WEB_DIALOG_PARAM_ID))
-                            .setPhotoPath(Utils.getBestMatchImage(imagesData, 1024));
+                            .setPhotoPath(imagesData.getJSONObject(0).getString(ShareConstants.FEED_SOURCE_PARAM))
+                            .setPhotoHeight(imagesData.getJSONObject(0).getInt("height"))
+                            .setPhotoWidth(imagesData.getJSONObject(0).getInt("width"));
 
                     mPhotos.add(photo);
                 }
             }
             getMvpView().showPhotos(mPhotos);
-        }
-    }
-
-    private void showLoading() {
-        if (mCurrentFragment.isVisible()) {
-            mLoadingDialog = ProgressDialog.show(mActivity, "", "", true);
-        }
-    }
-
-    private void dismissLoading() {
-        if (mLoadingDialog != null) {
-            try {
-                mLoadingDialog.dismiss();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
     }
 
@@ -204,10 +188,9 @@ public class PresenterFragmentFacebookPhotos extends BasePresenter<MvpFragmentFa
     }
 
     public boolean onBackPressed() {
-        if(getMvpView().isShowingAlbums()) {
+        if (getMvpView().isShowingAlbums()) {
             return false;
-        }
-        else {
+        } else {
             getMvpView().showAlbums(mFbAlbums);
             return true;
         }

@@ -1,6 +1,5 @@
 package eu.mobiletouch.fotoland.activities;
 
-import android.content.Intent;
 import android.os.Handler;
 
 import java.io.IOException;
@@ -22,6 +21,11 @@ public class ActivitySplashscreen extends BaseActivity {
     @Override
     protected int getLayoutResId() {
         return R.layout.activity_splashscreen;
+    }
+
+    @Override
+    protected String getScreenName() {
+        return null;
     }
 
     @Override
@@ -49,7 +53,7 @@ public class ActivitySplashscreen extends BaseActivity {
     }
 
     private void openNextActivity() {
-        startActivity(new Intent(this, ActivitySelectProduct.class));
+        ActivitySelectProduct.launch(this);
         this.finish();
     }
 

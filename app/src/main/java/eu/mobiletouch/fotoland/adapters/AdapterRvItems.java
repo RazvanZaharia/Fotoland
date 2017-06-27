@@ -40,7 +40,7 @@ public class AdapterRvItems extends RecyclerView.Adapter<AdapterRvItems.BaseView
         this.mItems = items;
         this.mOfferBannerResId = offerBannerResId;
         this.mOnItemClickListener = onItemClickListener;
-        mOnOfferBannerClickListener = onOfferBannerClickListener;
+        this.mOnOfferBannerClickListener = onOfferBannerClickListener;
     }
 
     @Override
@@ -132,7 +132,7 @@ public class AdapterRvItems extends RecyclerView.Adapter<AdapterRvItems.BaseView
             tvDescription.setText("");
             if (item.getSizes() != null) {
                 if (item.getSizes().size() == 1) {
-                    tvDescription.setText(item.getSizes().get(0).getSize());
+                    tvDescription.setText(item.getSizes().get(0).getSizeToDisplay());
                 }
 
                 if (item.getSizes().size() > 1) {

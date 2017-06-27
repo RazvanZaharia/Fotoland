@@ -1,7 +1,6 @@
 package eu.mobiletouch.fotoland.activities;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
@@ -12,7 +11,6 @@ import com.isseiaoki.simplecropview.callback.SaveCallback;
 
 import butterknife.Bind;
 import eu.mobiletouch.fotoland.R;
-import eu.mobiletouch.fotoland.dialogs.DialogManager;
 import eu.mobiletouch.fotoland.holders.Item;
 import eu.mobiletouch.fotoland.holders.localPhotos.Photo;
 import eu.mobiletouch.fotoland.mvps.MvpActivityCropPhoto;
@@ -29,7 +27,6 @@ public class ActivityCropPhoto extends BaseSaveToolbarActivity implements MvpAct
     private SaveCallback mSaveCallback;
 
     private PresenterActivityCropPhoto mPresenterActivityCropPhoto;
-    private ProgressDialog mProgressDialog;
 
     public static void launch(@NonNull Activity activity, @NonNull Item item, @NonNull Photo photo, int requestCode) {
         Intent cropPhotoIntent = new Intent(activity, ActivityCropPhoto.class);
@@ -41,6 +38,16 @@ public class ActivityCropPhoto extends BaseSaveToolbarActivity implements MvpAct
     @Override
     protected int getLayoutResId() {
         return R.layout.activity_crop_photo;
+    }
+
+    @Override
+    protected String getScreenName() {
+        return getString(R.string.screenTitle_cropActivity);
+    }
+
+    @Override
+    protected boolean showCartIcon() {
+        return false;
     }
 
     @Override
@@ -94,20 +101,6 @@ public class ActivityCropPhoto extends BaseSaveToolbarActivity implements MvpAct
         mLoadCallback = null;
         mSaveCallback = null;
         super.onDestroy();
-    }
-
-    private void showLoading() {
-        if (mProgressDialog == null) {
-            mProgressDialog = DialogManager.createProgressDialog(this);
-        } else {
-            mProgressDialog.show();
-        }
-    }
-
-    private void dismissLoading() {
-        if (mProgressDialog != null) {
-            mProgressDialog.dismiss();
-        }
     }
 
     @Override

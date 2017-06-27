@@ -1,5 +1,7 @@
 package eu.mobiletouch.fotoland.activities;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -21,6 +23,10 @@ public class ActivitySelectProduct extends BaseNavigationDrawerActivity implemen
 
     private PresenterActivitySelectProduct mPresenterActivitySelectProduct;
 
+    public static void launch(@NonNull Context ctx) {
+        ctx.startActivity(new Intent(ctx, ActivitySelectProduct.class));
+    }
+
     @Override
     protected int getLayoutResId() {
         return R.layout.activity_main;
@@ -28,7 +34,7 @@ public class ActivitySelectProduct extends BaseNavigationDrawerActivity implemen
 
     @Override
     protected String getScreenName() {
-        return getString(R.string.title_screen_select_product);
+        return getString(R.string.screenTitle_select_product);
     }
 
     @Override

@@ -22,7 +22,7 @@ import eu.mobiletouch.fotoland.utils.DeviceManager;
 /**
  * Created on 27-Aug-16.
  */
-public class PresenterFragmentLocalPhotos extends BasePresenter<MvpFragmentLocalPhotos> implements PermissionCallback, OnPhotoClickListener, OnPhotoAlbumClickListener {
+public class PresenterFragmentLocalPhotos extends BasePhotosPresenter<MvpFragmentLocalPhotos> implements PermissionCallback, OnPhotoClickListener, OnPhotoAlbumClickListener {
 
     private Activity mActivity;
     private ArrayList<PhotoAlbum> mLocalAlbums;
@@ -68,16 +68,19 @@ public class PresenterFragmentLocalPhotos extends BasePresenter<MvpFragmentLocal
 
     @Override
     public void onPermissionGranted(int permissionCode) {
+        showLoading(mActivity);
         DeviceManager.getPhoneAlbums(mActivity, new OnLocalImagesObtained() {
             @Override
             public void onComplete(ArrayList<PhotoAlbum> albums) {
                 mLocalAlbums = albums;
                 getMvpView().showAlbums(mLocalAlbums);
+                dismissLoading();
             }
 
             @Override
             public void onError() {
                 Toast.makeText(mActivity, "Photos Error", Toast.LENGTH_SHORT).show();
+                dismissLoading();
             }
         });
     }

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#EFF3F6"
+              android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:src="@drawable/ic_app"
+        android:id="@+id/imageView"/>
+
+    <Button
+        android:id="@+id/btn_sign_in"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="20dp"
+        android:text="@string/label_button_sign_in"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"/>
+
+    <Button
+        android:id="@+id/btn_create_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="20dp"
+        android:text="@string/label_button_create_account"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"/>
+
+    <Button
+        android:id="@+id/btn_skip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:background="@color/white"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="20dp"
+        android:text="Skip"/>
+
+</LinearLayout>

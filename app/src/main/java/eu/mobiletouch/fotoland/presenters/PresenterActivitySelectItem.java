@@ -4,11 +4,13 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 
 import eu.mobiletouch.fotoland.activities.ActivitySelectDetails;
+import eu.mobiletouch.fotoland.activities.ActivitySelectSize;
 import eu.mobiletouch.fotoland.adapters.AdapterRvItems;
 import eu.mobiletouch.fotoland.holders.Item;
 import eu.mobiletouch.fotoland.holders.Product;
 import eu.mobiletouch.fotoland.holders.UserSelections;
 import eu.mobiletouch.fotoland.mvps.MvpActivitySelectItem;
+import eu.mobiletouch.fotoland.utils.LaunchScreenUtils;
 
 /**
  * Created on 24-Aug-16.
@@ -34,7 +36,7 @@ public class PresenterActivitySelectItem extends BasePresenter<MvpActivitySelect
     @Override
     public void onItemClick(Item item) {
         mUserSelections.setSelectedItem(item);
-        ActivitySelectDetails.launch(mCtx, mUserSelections);
+        LaunchScreenUtils.launchDetailsActivity(mCtx, mUserSelections);
     }
 
     @Override

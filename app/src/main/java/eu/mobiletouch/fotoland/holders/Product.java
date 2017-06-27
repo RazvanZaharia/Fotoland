@@ -7,15 +7,14 @@ import android.support.annotation.NonNull;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import eu.mobiletouch.fotoland.enums.ProductType;
+import eu.mobiletouch.fotoland.utils.ObjectsUtils;
+
 /**
  * Created on 10-Aug-16.
  */
 public abstract class Product implements Serializable {
     private static final long serialVersionUID = 7259699601698155543L;
-
-    public enum ProductType {
-        PRINTS, POSTERS, CANVAS, PHOTOBOOK, EXTRA
-    }
 
     @DrawableRes
     protected int mIconRes;
@@ -80,4 +79,17 @@ public abstract class Product implements Serializable {
     }
 
     protected abstract ArrayList<Item> getAvailableItems(@NonNull Context ctx);
+
+    public abstract float getPpiLimit();
+
+    @Override
+    public boolean equals(Object o) {
+        return o instanceof Product
+                && this.mIconRes == ((Product) o).mIconRes
+                && this.mBannerResId == ((Product) o).mBannerResId
+                && ObjectsUtils.equals(this.mName, ((Product) o).mName)
+                && ObjectsUtils.equals(this.mNoOfFree, ((Product) o).mNoOfFree)
+                && ObjectsUtils.equals(this.mProductType, ((Product) o).mProductType)
+                && ObjectsUtils.equals(this.mItems, ((Product) o).mItems);
+    }
 }
